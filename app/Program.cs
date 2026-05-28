@@ -4,6 +4,7 @@ using FlowerShop.dto;
 using FlowerShop.interfaces;
 using FlowerShop.services;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,11 @@ builder.Services.AddSwaggerGen(options =>
         Description = "Сервис доставки цветов: цветы, букеты, клиенты, курьеры, заказы, лояльность, промокоды."
     });
 });
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
+
 
 // бд
 var connectionString = builder.Configuration.GetConnectionString("Postgres")
