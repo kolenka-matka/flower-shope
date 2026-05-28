@@ -79,6 +79,7 @@ public class Mapper : IMapper
         DiscountAmount = order.DiscountAmount,
         Total = order.Total,
         PromocodeId = order.PromocodeId,
+        PointsSpent = order.PointsSpent,
         EarnedPoints = order.EarnedPoints,
         Status = order.Status,
         CreatedAtUtc = order.CreatedAtUtc

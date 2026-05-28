@@ -14,6 +14,7 @@ public class Order
     public decimal DiscountAmount { get; set; }
     public decimal Total { get; set; }
     public Guid? PromocodeId { get; set; }
+    public int PointsSpent { get; set; }
     public int EarnedPoints { get; set; }
     public OrderStatus Status { get; set; } = OrderStatus.Created;
     public DateTime CreatedAtUtc { get; set; }

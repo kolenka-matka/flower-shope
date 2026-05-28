@@ -36,6 +36,8 @@ builder.Services.AddScoped<ICourierService, CourierService>();
 builder.Services.AddScoped<IPromocodeService, PromocodeService>();
 builder.Services.AddScoped<IBouquetService, BouquetService>();
 builder.Services.AddScoped<ILoyaltyService, LoyaltyService>();
+builder.Services.AddScoped<IReceiptService, ReceiptService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 var app = builder.Build();
 
@@ -58,14 +60,15 @@ if (app.Environment.IsDevelopment())
 // эндпоинты
 var api = app.MapGroup("/api");
 api.MapFlowersEndpoints();
+api.MapBouquetsEndpoints();
 api.MapClientsEndpoints();
 api.MapCouriersEndpoints();
 api.MapPromocodesEndpoints();
-api.MapBouquetsEndpoints();
+api.MapOrdersEndpoints();
 
 app.MapGet("/", () => Results.Ok(new
 {
-    message = "Flower Shop API работает. Откройте /api/flowers, /api/bouquets, /api/clients, /api/couriers, /api/promocodes."
+    message = "Flower Shop API работает. Откройте /api/flowers, /api/bouquets, /api/clients, /api/couriers, /api/promocodes, /api/orders."
 }));
 
 await app.RunAsync();

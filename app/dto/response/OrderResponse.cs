@@ -16,6 +16,7 @@ public record OrderResponse
     public decimal DiscountAmount { get; init; }
     public decimal Total { get; init; }
     public Guid? PromocodeId { get; init; }
+    public int PointsSpent { get; init; }
     public int EarnedPoints { get; init; }
     public OrderStatus Status { get; init; }
     public DateTime CreatedAtUtc { get; init; }
